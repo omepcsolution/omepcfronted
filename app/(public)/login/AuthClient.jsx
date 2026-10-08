@@ -47,7 +47,7 @@ export default function AuthClient() {
                                     type="email"
                                     className="w-full bg-transparent outline-none text-[14px] text-emerald-950 font-medium placeholder:text-emerald-800/40"
                                     required
-                                    placeholder="admin@omepc.com"
+                                    placeholder="omepcsolution@gmail.com"
                                 />
                             </div>
                         </div>

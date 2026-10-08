@@ -46,7 +46,7 @@ export default function Home() {
         "logo": "https://www.omepcsolution.com/logo.webp",
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+91-9876543210",
+          "telephone": "+91-7981413743",
           "contactType": "customer service",
           "areaServed": "IN",
           "availableLanguage": ["en", "bn", "hi"]

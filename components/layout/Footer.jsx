@@ -50,17 +50,17 @@ export default function Footer() {
               </p>
 
               <div className="flex flex-col gap-3 md:gap-4 text-sm md:text-base text-emerald-50 mb-8 md:mb-10">
-                <a href="tel:+919876543210" className="flex items-center gap-3 md:gap-4 hover:text-emerald-300 transition-colors group w-fit">
+                <a href="tel:+917981413743" className="flex items-center gap-3 md:gap-4 hover:text-emerald-300 transition-colors group w-fit">
                   <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-emerald-800/50 border border-emerald-700/50 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-700 transition-colors shrink-0">
                     <Phone size={16} className="md:w-[18px] md:h-[18px]" />
                   </div>
-                  +91 98765 43210
+                  +91 79814 13743
                 </a>
-                <a href="mailto:contact@omepcsolution.com" className="flex items-center gap-3 md:gap-4 hover:text-emerald-300 transition-colors group w-fit">
+                <a href="mailto:omepcsolution@gmail.com" className="flex items-center gap-3 md:gap-4 hover:text-emerald-300 transition-colors group w-fit">
                   <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-emerald-800/50 border border-emerald-700/50 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-700 transition-colors shrink-0">
                     <Mail size={16} className="md:w-[18px] md:h-[18px]" />
                   </div>
-                  contact@omepcsolution.com
+                  omepcsolution@gmail.com
                 </a>
                 
                 <div className="flex items-start gap-3 md:gap-4 group w-fit">

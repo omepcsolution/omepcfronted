@@ -100,8 +100,8 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold text-emerald-950 mb-4">10. Contact Us</h2>
               <p className="mb-4">If you have any questions or concerns about this Privacy Policy, please reach out to us:</p>
               <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-100 text-emerald-950 font-medium">
-                <p>Email: contact@omepcsolution.com</p>
-                <p>Phone: +91 98765 43210</p>
+                <p>Email: omepcsolution@gmail.com</p>
+                <p>Phone: +91 79814 13743</p>
                 <p>Address: Sector V, Salt Lake, Kolkata, WB 700091, India</p>
               </div>
             </section>

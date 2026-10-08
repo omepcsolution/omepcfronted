@@ -86,7 +86,7 @@ export default function TechnicalExpertise() {
                                 <div className="absolute top-0 left-4 right-4 h-[1px] bg-emerald-100"></div>
                                 <div className="flex items-center gap-2 text-[12px] font-medium text-emerald-700">
                                     <Mail size={14} className="text-emerald-500" />
-                                    support@omepc.com
+                                    omepcsolution@gmail.com
                                 </div>
                                 <ArrowRight size={14} className="text-emerald-400 group-hover:text-emerald-800 transition-colors duration-300" />
                             </div>

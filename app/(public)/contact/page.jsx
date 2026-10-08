@@ -43,8 +43,8 @@ export default function ContactPage() {
         "mainEntity": {
             "@type": "LocalBusiness",
             "name": "OM EPC Solution",
-            "telephone": "+91-9876543210",
-            "email": "support@omepcsolution.com",
+            "telephone": "+91-7981413743",
+            "email": "omepcsolution@gmail.com",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "West Bengal",

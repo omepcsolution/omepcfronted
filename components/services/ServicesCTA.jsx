@@ -26,9 +26,9 @@ const WhatsAppIcon = ({ size = 18, className }) => (
 
 export default function ServicesCTA() {
     const contactChannels = [
-        { label: "Call Us", icon: Phone, href: "tel:+919876543210" },
-        { label: "WhatsApp", icon: WhatsAppIcon, href: "https://wa.me/919876543210" },
-        { label: "Email", icon: Mail, href: "mailto:support@omepc.com" }
+        { label: "Call Us", icon: Phone, href: "tel:+917981413743" },
+        { label: "WhatsApp", icon: WhatsAppIcon, href: "https://wa.me/917981413743" },
+        { label: "Email", icon: Mail, href: "mailto:omepcsolution@gmail.com" }
     ];
 
     return (
