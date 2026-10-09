@@ -17,7 +17,7 @@ export default function Industries() {
       title: "Online UPS Installation",
       description:
         "High-performance online UPS systems designed to provide uninterrupted and reliable power for critical business equipment.",
-      location: "Salt Lake Sector V, Kolkata • 17 Aug, 2025",
+      location: "Amrita, 10/8/1, Amritya Pyne Ln, Kali Babur Bazar, Naora, Shibpur, Howrah, West Bengal 711101• 17 Aug, 2025",
       icon: BatteryCharging,
       image: "/home/home-industris-1.webp"
     },

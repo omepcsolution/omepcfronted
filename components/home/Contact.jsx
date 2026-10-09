@@ -181,7 +181,7 @@ export default function Contact() {
                   <div className="mt-1 text-emerald-700"><MapPin size={24} className="w-5 h-5 md:w-6 md:h-6" /></div>
                   <div>
                     <p className="text-xs md:text-sm text-emerald-900/60 font-medium mb-1">Just Visit Us:</p>
-                    <p className="text-sm sm:text-base font-bold text-emerald-950">Sector V, Salt Lake,<br />Kolkata, WB 700091</p>
+                    <p className="text-sm sm:text-base font-bold text-emerald-950">Amrita, 10/8/1, Amritya Pyne Ln, Kali Babur Bazar, Naora, Shibpur, Howrah, West Bengal 711101</p>
                   </div>
                 </div>
 
@@ -189,7 +189,7 @@ export default function Contact() {
                   <div className="mt-1 text-emerald-700"><Phone size={24} className="w-5 h-5 md:w-6 md:h-6" /></div>
                   <div>
                     <p className="text-xs md:text-sm text-emerald-900/60 font-medium mb-1">Need help? Call Us:</p>
-                    <p className="text-sm sm:text-base font-bold text-emerald-950">+91 98765 43210</p>
+                    <p className="text-sm sm:text-base font-bold text-emerald-950">+91 79814 13743</p>
                   </div>
                 </div>
 

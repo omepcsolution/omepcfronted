@@ -76,7 +76,7 @@ export default function ContactCTA() {
                             Get a Free Quote
                         </Button>
                         </Link>
-                        <Link href="https://wa.me/919822084067">
+                        <Link href="https://wa.me/917981413743">
                         <Button>
                             WhatsApp Us
                         </Button>

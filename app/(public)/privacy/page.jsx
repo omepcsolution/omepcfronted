@@ -102,7 +102,7 @@ export default function PrivacyPolicy() {
               <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-100 text-emerald-950 font-medium">
                 <p>Email: omepcsolution@gmail.com</p>
                 <p>Phone: +91 79814 13743</p>
-                <p>Address: Sector V, Salt Lake, Kolkata, WB 700091, India</p>
+                <p>Address: Amrita, 10/8/1, Amritya Pyne Ln, Kali Babur Bazar, Naora, Shibpur, Howrah, West Bengal 711101</p>
               </div>
             </section>
             

@@ -11,17 +11,14 @@ export default function ContactMap() {
             {/* Floating Card Container */}
             <div className="relative max-w-[1400px] mx-auto h-[500px] md:h-[600px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border border-emerald-100/10">
 
-                {/* 100% Reliable SSR-Safe OpenStreetMap Embed */}
+                {/* Google Maps Embed (output=embed is required — place/share URLs are blocked by X-Frame-Options) */}
                 <iframe
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    scrolling="no"
-                    marginHeight="0"
-                    marginWidth="0"
                     src={location.mapUrl}
-                    className="absolute inset-0 w-full h-full grayscale-[20%] contrast-125 opacity-90"
+                    className="absolute inset-0 w-full h-full grayscale-[20%] contrast-125 opacity-90 border-0"
                     title="OM EPC Solution Map Location"
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
 
                 {/* Centered Overlay Card */}
@@ -53,6 +50,16 @@ export default function ContactMap() {
                             <p className="text-sm text-emerald-900/70">
                                 <strong className="text-emerald-950">Email:</strong> {location.email}
                             </p>
+                            {location.directionsUrl && (
+                                <a
+                                    href={location.directionsUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 mt-2 text-sm font-bold text-emerald-700 hover:text-emerald-900 transition-colors"
+                                >
+                                    <MapPin size={16} /> Get Directions
+                                </a>
+                            )}
                         </div>
                     </motion.div>
                 </div>

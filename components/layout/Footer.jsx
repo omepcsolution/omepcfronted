@@ -68,8 +68,7 @@ export default function Footer() {
                     <MapPin size={16} className="md:w-[18px] md:h-[18px]" />
                   </div>
                   <span className="leading-relaxed pt-1 sm:pt-1.5 text-sm md:text-base">
-                    Sector V, Salt Lake, Kolkata,<br />
-                    WB 700091, India
+                    Amrita, 10/8/1, Amritya Pyne Ln, Kali Babur Bazar, Naora, Shibpur, Howrah, West Bengal 711101
                   </span>
                 </div>
               </div>

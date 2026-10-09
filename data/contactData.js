@@ -1,5 +1,5 @@
 export const contactData = {
-  phone: "+91 98765 43210",
+  phone: "+91 79814 1374",
   email: "omepcsolution@gmail.com",
   whatsapp: "917981413743",
   businessHours: {
@@ -10,10 +10,11 @@ export const contactData = {
     {
       id: "hq",
       name: "Main Office",
-      address: "Sector V, Salt Lake, Kolkata, WB 700091, India",
-      phone: "+91 98765 43210",
+      address: "Amrita, 10/8/1, Amritya Pyne Ln, Kali Babur Bazar, Naora, Shibpur, Howrah, West Bengal 711101",
+      phone: "+91 79814 13743",
       email: "omepcsolution@gmail.com",
-      mapUrl: "https://www.openstreetmap.org/export/embed.html?bbox=88.35,22.56,88.45,22.60&layer=mapnik&marker=22.58,88.40"
+      mapUrl: "https://maps.google.com/maps?q=OM%20EPC%20SOLUTION%2C%20Amritya%20Pyne%20Ln%2C%20Shibpur%2C%20Howrah%2C%20West%20Bengal%20711101&t=&z=15&ie=UTF8&iwloc=&output=embed",
+      directionsUrl: "https://www.google.com/maps/place/OM+EPC+SOLUTION/data=!4m2!3m1!1s0x0:0xe66334355dad35da?sa=X&ved=1t:2428&ictx=111&cshid=1791474162507935"
     }
   ],
   social: {
