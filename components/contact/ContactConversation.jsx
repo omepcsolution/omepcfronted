@@ -1,9 +1,12 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { contactData } from '@/data/contactData';
+import { productsList } from '@/data/productsData';
+import { resolveProductNameBySlug, getAdminApiUrl } from '@/lib/adminApi';
 import { MapPin, Phone, Mail, CheckCircle2, AlertCircle, Send } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
@@ -13,27 +16,57 @@ const FacebookIcon = ({ size = 18, className }) => <svg xmlns="http://www.w3.org
 const InstagramIcon = ({ size = 18, className }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>;
 const YouTubeIcon = ({ size = 18, className }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z" /><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /></svg>;
 
-export default function ContactConversation() {
+function resolveLocalProductName(slugOrName) {
+    if (!slugOrName) return null;
+    const q = String(slugOrName).toLowerCase();
+    const found = productsList.find(
+        (p) => p.slug === slugOrName || p.id === slugOrName ||
+            p.name?.toLowerCase() === q
+    );
+    return found?.name ?? null;
+}
+
+function ContactForm() {
+    const searchParams = useSearchParams();
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
     const [errors, setErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [status, setStatus] = useState({ loading: false, error: '' });
 
-    // FIXED: Now checks for both 'product' and 'service' query parameters
+    // Prefill subject from `?product=<slug>`: resolve slug -> name via Admin API.
+    // If ?product missing or slug not found, leave subject empty.
+    // Existing Full Name / Email / Phone / Message + submit logic unchanged.
     useEffect(() => {
-        // Ensure this only runs on the client
-        if (typeof window !== "undefined") {
-            const params = new URLSearchParams(window.location.search);
-            const product = params.get('product');
-            const service = params.get('service');
-            
-            if (product) {
-                setFormData(prev => ({ ...prev, subject: `Enquiry about Product: ${product}` }));
-            } else if (service) {
-                setFormData(prev => ({ ...prev, subject: `Enquiry about Service: ${service}` }));
-            }
+        const slug = searchParams.get('product');
+        const service = searchParams.get('service');
+
+        if (service && !slug) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time query-param prefill
+            setFormData(prev => (prev.subject ? prev : { ...prev, subject: `Enquiry about Service: ${service}` }));
+            return;
         }
-    }, []);
+        if (!slug) return;
+
+        let cancelled = false;
+        (async () => {
+            let name = null;
+            // 1) Admin backend as source of truth (detail API, then list search)
+            if (getAdminApiUrl()) {
+                name = await resolveProductNameBySlug(slug);
+            }
+            // 2) Local catalogue fallback (covers offline + legacy ?product=<name> links)
+            if (!name) {
+                name = resolveLocalProductName(slug);
+                // Legacy links passed the raw product name — accept it if it matches,
+                // otherwise per spec leave subject empty (don't blindly echo the slug).
+                if (!name) return;
+            }
+            if (!cancelled) {
+                setFormData(prev => (prev.subject ? prev : { ...prev, subject: `Enquiry about Product: ${name}` }));
+            }
+        })();
+        return () => { cancelled = true; };
+    }, [searchParams]);
 
     const validateForm = () => {
         let newErrors = {};
@@ -222,5 +255,13 @@ export default function ContactConversation() {
                 </div>
             </div>
         </section>
+    );
+}
+
+export default function ContactConversation() {
+    return (
+        <Suspense fallback={null}>
+            <ContactForm />
+        </Suspense>
     );
 }
